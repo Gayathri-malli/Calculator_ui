@@ -49,7 +49,7 @@ pipeline {
                     // Update deployment with new image
                     bat """
                         kubectl set image deployment/calculator calculator=${env.IMAGE_TAG} --record
-                        kubectl rollout status deployment/Calculator
+                        kubectl rollout status deployment/calculator
                     """
                 }
             }
@@ -59,7 +59,7 @@ pipeline {
             steps {
                 echo '🔗 Forwarding Kubernetes service to localhost:5000'
                 echo 'Run this manually in a separate terminal:'
-                echo 'kubectl port-forward svc/python-app 5000:5000'
+                echo 'kubectl port-forward svc/calculator 5000:5000'
             }
         }
     }
