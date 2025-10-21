@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Calculator
+  name: calculator
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: Calculator
+      app: calculator
   template:
     metadata:
       labels:
-        app: Calculator
+        app: calculator
     spec:
       containers:
-      - name: Calculator
+      - name: calculator
         image: malligayathri/calculator:latest
         ports:
         - containerPort: 5000
@@ -21,11 +21,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Calculator-service
+  name: calculator-service
 spec:
   type: LoadBalancer
   selector:
-    app: Calculator
+    app: calculator
   ports:
     - protocol: TCP
       port: 5000
