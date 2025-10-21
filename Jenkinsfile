@@ -46,14 +46,15 @@ pipeline {
             steps {
                 echo '🚀 Deploying to Kubernetes...'
                 script {
-                    // Update deployment with new image
                     bat """
-                        kubectl set image deployment/calculator calculator=${env.IMAGE_TAG} --record
+                        kubectl apply -f Deployment.yaml
+                        kubectl set image deployment/calculator calculator=${env.IMAGE_TAG}
                         kubectl rollout status deployment/calculator
                     """
                 }
             }
         }
+
 
         stage('Port Forward for Local Testing') {
             steps {
