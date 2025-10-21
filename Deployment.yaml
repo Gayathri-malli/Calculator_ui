@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Calculator-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Calculator-ui
+  template:
+    metadata:
+      labels:
+        app: Calculator-ui
+    spec:
+      containers:
+      - name: Calculator-ui
+        image: malligayathri/Calculator-ui:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: python-app
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
