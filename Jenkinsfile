@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials') // Jenkins credential ID
-        IMAGE_NAME = 'malligayathri/Calculator-ui'
+        IMAGE_NAME = 'malligayathri/Calculator'
         GIT_URL = 'https://github.com/Gayathri-malli/Calculator_ui'
         KUBECONFIG = 'C:\\Users\\K UPENDRA\\.kube\\config'
     }
@@ -48,8 +48,8 @@ pipeline {
                 script {
                     // Update deployment with new image
                     bat """
-                        kubectl set image deployment/python-app python-app=${env.IMAGE_TAG} --record
-                        kubectl rollout status deployment/python-app
+                        kubectl set image deployment/Calculator Calculator=${env.IMAGE_TAG} --record
+                        kubectl rollout status deployment/Calculator
                     """
                 }
             }
