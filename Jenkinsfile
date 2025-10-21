@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials') // Jenkins credential ID
-        IMAGE_NAME = 'malligayathri/Calculator'
+        IMAGE_NAME = 'malligayathri/calculator'
         GIT_URL = 'https://github.com/Gayathri-malli/Calculator_ui'
         KUBECONFIG = 'C:\\Users\\K UPENDRA\\.kube\\config'
     }
