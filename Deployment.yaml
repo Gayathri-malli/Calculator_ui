@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: Calculator
-        image: malligayathri/Calculator:latest
+        image: malligayathri/calculator:latest
         ports:
         - containerPort: 5000
 ---
