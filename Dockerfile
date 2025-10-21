@@ -1,6 +1,6 @@
 From python:3.10-slim
 WORKDIR /app
-COPY requirements.txt
+COPY requirements.txt .
 RUn pip install -r requirements.txt
 COPy ...
 EXPOSE 5000
