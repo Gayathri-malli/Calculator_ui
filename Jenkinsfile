@@ -48,7 +48,7 @@ pipeline {
                 script {
                     // Update deployment with new image
                     bat """
-                        kubectl set image deployment/Calculator Calculator=${env.IMAGE_TAG} --record
+                        kubectl set image deployment/calculator calculator=${env.IMAGE_TAG} --record
                         kubectl rollout status deployment/Calculator
                     """
                 }
